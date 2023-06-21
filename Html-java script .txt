@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Navigation Bar</title>
+  <style>
+    body {
+      background-color: lightblue;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      background-color: navy;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar-brand {
+      color: white;
+      font-size: 24px;
+      margin-left: 20px;
+    }
+
+    .navbar-links {
+      list-style: none;
+      display: flex;
+      margin-right: 20px;
+    }
+
+    .navbar-links li {
+      margin-left: 10px;
+    }
+
+    .navbar-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .container {
+      width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      margin-top: 20px;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const links = document.querySelectorAll(".navbar-links a");
+      const content = document.querySelector(".container");
+      
+      links.forEach(function(link) {
+        link.addEventListener("click", function(e) {
+          e.preventDefault();
+          const page = this.getAttribute("href");
+          updateContent(page);
+        });
+      });
+      
+      function updateContent(page) {
+        // Replace this section with your own logic to update the content
+        if (page === "home.html") {
+          content.innerHTML = "<h1>Welcome to the Home Page</h1><p>This is the home page content.</p>";
+        } else if (page === "about.html") {
+          content.innerHTML = "<h1>About Us</h1><p>About page content goes here.</p>";
+        } else if (page === "services.html") {
+          content.innerHTML = "<h1>Our Services</h1><p>Here are the services we provide.</p>";
+        } else if (page === "contact.html") {
+          content.innerHTML = "<h1>Contact Us</h1><p>Contact information and form will be displayed here.</p>";
+        }
+      }
+    });
+  </script>
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar-brand">Navigation Bar</div>
+    <ul class="navbar-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <h1>Welcome to the Home Page</h1>
+    <p>This is the home page content.</p>
+  </div>
+</body>
+</html>
